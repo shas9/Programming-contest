@@ -11,7 +11,7 @@ At first we can think in a classic dynamic programming problem, something like:
 
     dp(99) = 0;
 
-    dp(0) = ( dp(1) + dp(2) + dp(3) + dp(4) + dp(5) + dp(6) + dp(7) ) * 1.0 / 6.0 + 1
+    dp(0) = ( dp(1) + dp(2) + dp(3) + dp(4) + dp(5) + dp(6) ) * 1.0 / 6.0 + 1
 
 
 But there is a problem with the snakes and ladders; For example we can obtain something like:
@@ -29,7 +29,7 @@ Now the problem could be written like this:
 
 ```c++
 for (int j = 1; j <= 6; ++j) {
-   dp[i] += dp[to[i]] / 6.0;
+   dp[i] += dp[to[i + j]] / 6.0;
 }
 dp[i] += 1.0;
 ```
